@@ -14,7 +14,18 @@ public class Order {
     private final LocalDateTime orderDate = LocalDateTime.now();
 
     public void addSandwich(Sandwich sandwich) {
-        sandwiches.add(sandwich);
+        this.sandwiches.add(sandwich);
+    }
+
+    public void addDrink(Drink drink) {
+        this.drinks.add(drink);
+
+    }
+
+    public void addChips(Chips chips) {
+        this.chips.add(chips);
+
+
     }
 
     public double calculateTotal() {
