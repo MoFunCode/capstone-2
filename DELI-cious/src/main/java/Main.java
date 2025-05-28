@@ -3,9 +3,13 @@ import com.delicious.model.enums.BreadType;
 import com.delicious.model.enums.SandwichSize;
 import com.delicious.model.enums.ToppingType;
 import com.delicious.service.PriceCalculator;
+import com.delicious.utils.FileManager;
+
+import java.io.File;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Order order = new Order();
 
@@ -15,8 +19,10 @@ public class Main {
 
         order.addDrink(new Drink("MEDIUM", "Lemonade"));
         order.addChips(new Chips("BBQ"));
+        FileManager.saveReceipt(order);
 
-        System.out.println("Order Total: $" + order.calculateTotal());
+
+
     }
 
 

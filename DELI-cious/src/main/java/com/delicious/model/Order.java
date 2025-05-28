@@ -25,7 +25,14 @@ public class Order {
     public void addChips(Chips chips) {
         this.chips.add(chips);
 
+    }
 
+    public List<Drink> getDrinks() {
+        return new ArrayList<>(drinks);
+    }
+
+    public List<Chips> getChips() {
+        return new ArrayList<>(chips);
     }
 
     public double calculateTotal() {
@@ -44,5 +51,8 @@ public class Order {
         return total;
     }
 
+    public List<Sandwich> getSandwiches() {
+        return new ArrayList<Sandwich>();
+    }
 }
 
