@@ -1,6 +1,8 @@
 package com.delicious.model;
 
-public class Drink {
+import com.delicious.service.PriceCalculator;
+
+public class Drink extends PriceCalculator {
 
     private final String size;  //could use an enum later
     private final String flavor;
@@ -9,5 +11,14 @@ public class Drink {
         this.size = size;
         this.flavor = flavor;
     }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getFlavor() {
+        return flavor;
+    }
+
 }
 

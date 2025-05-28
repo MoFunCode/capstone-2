@@ -6,18 +6,19 @@ import com.delicious.service.PriceCalculator;
 
 public class Main {
     public static void main(String[] args) {
+
         Order order = new Order();
 
-        Sandwich sandwich1 = new Sandwich(SandwichSize.TWELVE_INCH, BreadType.WHITE, false);
-        sandwich1.addTopping(new Topping(ToppingType.BACON, false));
-        order.addDrink(new Drink("MEDIUM", "FANTA"));
+        Sandwich sandwich = new Sandwich(SandwichSize.EIGHT_INCH, BreadType.WHITE, false);
+        sandwich.addTopping(new Topping(ToppingType.BACON, false));
+        order.addSandwich(sandwich);
+
+        order.addDrink(new Drink("MEDIUM", "Lemonade"));
         order.addChips(new Chips("BBQ"));
-        order.addSandwich(sandwich1);
 
         System.out.println("Order Total: $" + order.calculateTotal());
-
-
-
     }
 
+
 }
+

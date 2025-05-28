@@ -33,6 +33,14 @@ public class Order {
         for (Sandwich sandwich : sandwiches) {
             total += PriceCalculator.calculateSandwichPrice(sandwich);
         }
+        for (Drink drink : drinks) {
+            total += PriceCalculator.calculateDrinkPrice(drink);
+        }
+
+        for (Chips chip : chips) {
+            total += PriceCalculator.calculateChipsPrice(chip);
+        }
+
         return total;
     }
 
