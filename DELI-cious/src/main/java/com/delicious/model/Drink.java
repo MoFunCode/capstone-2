@@ -4,7 +4,7 @@ import com.delicious.service.PriceCalculator;
 
 public class Drink extends PriceCalculator {
 
-    private final String size;  //could use an enum later
+    private final String size;
     private final String flavor;
 
     public Drink(String size, String flavor) {

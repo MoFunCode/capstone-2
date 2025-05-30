@@ -35,6 +35,10 @@ public class Order {
         return new ArrayList<>(chips);
     }
 
+    public List<Sandwich> getSandwiches() {
+        return new ArrayList<>(sandwiches);
+    }
+
     public double calculateTotal() {
         double total = 0.0;
         for (Sandwich sandwich : sandwiches) {
@@ -51,8 +55,8 @@ public class Order {
         return total;
     }
 
-    public List<Sandwich> getSandwiches() {
-        return new ArrayList<Sandwich>();
+    public LocalDateTime getOrderDate() {
+        return orderDate;
     }
 }
 

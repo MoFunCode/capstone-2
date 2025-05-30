@@ -11,7 +11,7 @@ public class Sandwich {
     private final SandwichSize size;
     private final BreadType breadType;
     private final boolean isToasted;
-    private final List<Topping> toppings;     // List of Topping objects
+    private final List<Topping> toppings;
 
     public Sandwich(SandwichSize size, BreadType breadType, boolean isToasted) {
         this.size = size;
@@ -36,7 +36,6 @@ public class Sandwich {
         return isToasted;
     }
 
-    // Return a copy to prevent external modification
     public List<Topping> getToppings() {
         return new ArrayList<>(toppings);
     }

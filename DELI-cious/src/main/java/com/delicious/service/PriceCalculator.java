@@ -14,18 +14,14 @@ public class PriceCalculator {
 
         for (Topping topping : sandwich.getToppings()) {
             if (topping.getType().isPremium()) {
-                if (topping.getType().getCategory() == ToppingType.ToppingCategory.MEAT) {
-                    price += getMeatPrice(sandwich.getSize(), topping.isExtra());
-                } else if (topping.getType().getCategory() == ToppingType.ToppingCategory.CHEESE) {
-                    price += getCheesePrice(sandwich.getSize(), topping.isExtra());
-                }
+                price += getPremiumToppingPrice(sandwich.getSize(), topping.isExtra());
             }
         }
 
         return price;
     }
 
-    private static double getMeatPrice(SandwichSize size, boolean isExtra) {
+    private static double getPremiumToppingPrice(SandwichSize size, boolean isExtra) {
         double basePrice = switch (size) {
             case FOUR_INCH -> 1.00;
             case EIGHT_INCH -> 2.00;
@@ -33,41 +29,22 @@ public class PriceCalculator {
         };
 
         if (isExtra) {
-            double extraPrice = switch (size) {
+            double extraCost = switch (size) {
                 case FOUR_INCH -> 0.50;
                 case EIGHT_INCH -> 1.00;
                 case TWELVE_INCH -> 1.50;
             };
-            return basePrice + extraPrice;
-        }
-
-        return basePrice;
-    }
-
-    private static double getCheesePrice(SandwichSize size, boolean isExtra) {
-        double basePrice = switch (size) {
-            case FOUR_INCH -> 0.75;
-            case EIGHT_INCH -> 1.50;
-            case TWELVE_INCH -> 2.25;
-        };
-
-        if (isExtra) {
-            double extraPrice = switch (size) {
-                case FOUR_INCH -> 0.30;
-                case EIGHT_INCH -> 0.60;
-                case TWELVE_INCH -> 0.90;
-            };
-            return basePrice + extraPrice;
+            return basePrice + extraCost;
         }
 
         return basePrice;
     }
 
     public static double calculateDrinkPrice(Drink drink) {
-        return switch (drink.getSize().toUpperCase()) {
-            case "SMALL" -> 2.00;
-            case "MEDIUM" -> 2.50;
-            case "LARGE" -> 3.00;
+        return switch (drink.getSize().toLowerCase()) {
+            case "small" -> 2.00;
+            case "medium" -> 2.50;
+            case "large" -> 3.00;
             default -> 0.0;
         };
     }
@@ -76,4 +53,3 @@ public class PriceCalculator {
         return 1.50;
     }
 }
-
